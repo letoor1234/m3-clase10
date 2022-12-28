@@ -3,10 +3,13 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const { testDb } = require("./models");
 
 const express = require("express");
 
 const app = express();
+
+testDb();
 
 /** APPLY GLOBAL MIDDLEWARES */
 
@@ -25,8 +28,8 @@ app.use(cookieParser());
 
 /** CREATING ROUTES */
 
-const userRoutes = require("./routes/users");
-app.use("/users", userRoutes);
+const authorRouter = require("./routes/authors");
+app.use("/authors", authorRouter);
 
 /** END CREATING ROUTES */
 
