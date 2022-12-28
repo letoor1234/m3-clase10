@@ -4,11 +4,14 @@ const {
   createAuthor,
   editAuthor,
   deleteAuthor,
+  getCreateForm,
 } = require("../controllers/authors");
 
 const router = Router();
 
 router.get("/", getAllAuthors);
+
+router.get("/create", getCreateForm);
 
 router.post("/", createAuthor);
 

@@ -24,6 +24,8 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+app.set("view engine", "ejs");
 /** END APPLY GLOBAL MIDDLEWARES */
 
 /** CREATING ROUTES */
