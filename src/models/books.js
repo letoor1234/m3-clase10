@@ -1,8 +1,8 @@
 const { DataTypes } = require("sequelize");
-const Book = require("./books");
+const Author = require("./authors");
 const { sequelize } = require("./index");
 
-const Author = sequelize.define("Author", {
+const Book = sequelize.define("Book", {
   _id: {
     type: DataTypes.TINYINT,
     primaryKey: true,
@@ -12,14 +12,14 @@ const Author = sequelize.define("Author", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  lastName: {
+  description: {
     type: DataTypes.STRING,
     allowNull: false,
   },
 });
 
-Author.hasMany(Book, {
-  onDelete: "CASCADE"
+Book.belongsTo(Author, {
+  foreignKey: "authorId",
 });
 
-module.exports = Author;
+module.exports = Book;
