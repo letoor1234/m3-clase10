@@ -1,14 +1,9 @@
 const { DataTypes } = require("sequelize");
-const Author = require("./authors");
+const Genre = require("./genre");
 const { sequelize } = require("./index");
 
 const Book = sequelize.define("Book", {
-  _id: {
-    type: DataTypes.TINYINT,
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  name: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -16,10 +11,19 @@ const Book = sequelize.define("Book", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  yearOfPublication: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
-Book.belongsTo(Author, {
-  foreignKey: "authorId",
-});
+Book.associate = (models) => {
+  Book.hasOne(models.authors, {
+    foreignKey: "authorId",
+  });
+  Book.hasMany(Genre, {
+    foreignKey: "genreIds",
+  });
+};
 
 module.exports = Book;

@@ -8,14 +8,28 @@
   </head>
   <body>
     <div>
-      <% for(author of authors) { %>
-      <div>
-        <p><%= author.name %></p>
-        <p><%= author.lastName %></p>
-        <hr>
-      </div>
-      
-      <% } %>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Nacimiento</th>
+            <th>Defunción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(author of authors) { %>
+          <tr>
+            <td><%= author.id %></td>
+            <td><%= author.name %></td>
+            <td><%= author.lastName %></td>
+            <td><%= author.dateOfBirth %></td>
+            <td><%= author.dateOfDeath %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
