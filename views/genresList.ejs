@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+    <a href="http://localhost:8000/genres/create">
+      Crear nuevo (+)
+    </a>
+    <div>
+      <h1>Generos</h1>
+      <table >
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(genre of genres) { %>
+          <tr>
+            <td><%= genre.id %></td>
+            <td><%= genre.name %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <%- include('partials/footer.ejs') %>

@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+    <a href="http://localhost:8000/books/create">
+      Crear nuevo (+)
+    </a>
+    <div>
+      <h1>Libros</h1>
+      <table >
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Publicacion</th>
+            <th>Autor</th>
+            <th>Genero</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(book of books) { %>
+          <tr>
+            <td><%= book.id %></td>
+            <td><%= book.title %></td>
+            <td><%= book.yearOfPublication %></td>
+            <td><%= book.authorId %></td>
+            <td><%= book.genreIds %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <%- include('partials/footer.ejs') %>

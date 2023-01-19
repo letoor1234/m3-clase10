@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <form action="/authors" method="post">
-      <div>
-        <label for="name">Nombre</label>
-        <input type="text" name="name" id="name" />
-      </div>
-      <div>
-        <label for="lastName">Apellido</label>
-        <input type="text" name="lastName" id="lastName" />
-      </div>
-      <button type="submit">Enviar</button>
-    </form>
-  </body>
-</html>
+<%- include('partials/header.ejs') %>
+<a href="http://localhost:8000/authors"> &#60;-- Volver a Autores </a>
+<h1>Crear Autor</h1>
+<form action="/authors" method="post">
+  <div class="column">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" id="name" />
+  </div>
+  <div class="column">
+    <label for="lastName">Apellido</label>
+    <input type="text" name="lastName" id="lastName" />
+  </div>
+  <div class="column">
+    <label for="dateOfBirth">Fecha de Nacimiento</label>
+    <input type="date" name="dateOfBirth" id="dateOfBirth" />
+  </div>
+  <div class="column">
+    <label for="dateOfDeath">Fecha de Defunción</label>
+    <input type="date" name="dateOfDeath" id="dateOfDeath" />
+  </div>
+  <button type="submit">Enviar</button>
+</form>
+<%- include('partials/footer.ejs') %>

@@ -1,35 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Nacimiento</th>
-            <th>Defunción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(author of authors) { %>
-          <tr>
-            <td><%= author.id %></td>
-            <td><%= author.name %></td>
-            <td><%= author.lastName %></td>
-            <td><%= author.dateOfBirth %></td>
-            <td><%= author.dateOfDeath %></td>
-          </tr>
-          <% } %>
-        </tbody>
-      </table>
-    </div>
-  </body>
-</html>
+<%- include('partials/header.ejs') %>
+<a href="http://localhost:8000/authors/create"> Crear nuevo (+) </a>
+<div>
+  <h1>Autores</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Nacimiento</th>
+        <th>Defunción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(author of authors) { %>
+      <tr>
+        <td><%= author.id %></td>
+        <td><%= author.name %></td>
+        <td><%= author.lastName %></td>
+        <td><%= author.dateOfBirth %></td>
+        <td><%= author.dateOfDeath || "-" %></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<%- include('partials/footer.ejs') %>

@@ -3,6 +3,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 const { testDb } = require("./models");
 
 const express = require("express");
@@ -24,14 +25,22 @@ app.use(
   })
 );
 app.use(cookieParser());
-
+app.use(express.static(path.join(__dirname, "../public")));
 app.set("view engine", "ejs");
 /** END APPLY GLOBAL MIDDLEWARES */
 
 /** CREATING ROUTES */
 
+app.get("/", (req, res) => res.render("dashboard.ejs"));
+
 const authorRouter = require("./routes/authors");
 app.use("/authors", authorRouter);
+
+const genreRouter = require("./routes/genres");
+app.use("/genres", genreRouter);
+
+const booksRouter = require("./routes/books");
+app.use("/books", booksRouter);
 
 /** END CREATING ROUTES */
 

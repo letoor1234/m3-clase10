@@ -9,9 +9,9 @@ const getAllAuthors = async (req, res) => {
 const getCreateForm = (req, res) => res.render("createAuthor.ejs");
 
 const createAuthor = async (req, res) => {
-  const { name, lastName } = req.body;
+  const { name, lastName, dateOfBirth, dateOfDeath } = req.body;
 
-  await Author.create({ name, lastName });
+  await Author.create({ name, lastName, dateOfBirth, dateOfDeath });
 
   return res.redirect("/authors");
 };

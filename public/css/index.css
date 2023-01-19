@@ -1,0 +1,22 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  margin-bottom: 1em;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: .5em .9em;
+}
+
+table {
+  width: 100%;
+}
+
+th, td {
+    text-align: center;
+}
