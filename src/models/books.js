@@ -16,14 +16,6 @@ const Book = sequelize.define("Book", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  AuthorId: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  GenreId: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
 });
 
 Author.hasMany(Book);

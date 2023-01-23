@@ -16,11 +16,7 @@ const Stock = sequelize.define("Stock", {
     type: DataTypes.STRING,
     allowNull: null,
     defaultValue: Date.now().toString(),
-  },
-  BookId: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
+  }
 });
 
 Book.hasOne(Stock);
