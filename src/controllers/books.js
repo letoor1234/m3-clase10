@@ -16,15 +16,15 @@ const getCreateForm = async (req, res) => {
 };
 
 const createBook = async (req, res) => {
-  const { title, description, yearOfPublication, authorId, genreIds } =
+  const { title, description, yearOfPublication, AuthorId, GenreId } =
     req.body;
 
   await Book.create({
     title,
     description,
     yearOfPublication,
-    authorId,
-    genreIds,
+    AuthorId,
+    GenreId,
   });
 
   return res.redirect("/books");

@@ -11,8 +11,8 @@
     <input type="date" name="yearOfPublication" id="yearOfPublication" />
   </div>
   <div class="column">
-    <label for="authorId">Autor</label>
-    <select id="authorId" name="authorId" required>
+    <label for="AuthorId">Autor</label>
+    <select id="AuthorId" name="AuthorId" required>
       <option value="0" selected disabled>Seleccionar autor</option>
       <% for(author of authors) { %>
       <option value="<%= author.id %>"><%= author.name %></option>
@@ -20,8 +20,8 @@
     </select>
   </div>
   <div class="column">
-    <label for="genreIds">Genero</label>
-    <select id="genreIds" name="genreIds">
+    <label for="GenreId">Genero</label>
+    <select id="GenreId" name="GenreId">
       <option value="0" selected disabled>Seleccionar genero</option>
       <% for(genre of genres) { %>
       <option value="<%= genre.id %>"><%= genre.name %></option>

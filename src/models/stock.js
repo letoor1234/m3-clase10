@@ -1,4 +1,5 @@
 const { DataTypes } = require("sequelize");
+const Book = require("./books");
 const { sequelize } = require("./index");
 
 const Stock = sequelize.define("Stock", {
@@ -16,12 +17,15 @@ const Stock = sequelize.define("Stock", {
     allowNull: null,
     defaultValue: Date.now().toString(),
   },
+  BookId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
-Stock.associate = (models) => {
-  Stock.hasOne(models.books, {
-    foreignKey: "bookId",
-  });
-};
+Book.hasOne(Stock);
+Stock.belongsTo(Book, {
+  foreignKey: "BookId",
+});
 
 module.exports = Stock;

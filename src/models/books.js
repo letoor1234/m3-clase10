@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const Genre = require("./genre");
+const Author = require("./authors");
 const { sequelize } = require("./index");
 
 const Book = sequelize.define("Book", {
@@ -15,15 +16,24 @@ const Book = sequelize.define("Book", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  AuthorId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  GenreId: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
-Book.associate = (models) => {
-  Book.hasOne(models.authors, {
-    foreignKey: "authorId",
-  });
-  Book.hasMany(Genre, {
-    foreignKey: "genreIds",
-  });
-};
+Author.hasMany(Book);
+Book.belongsTo(Author, {
+  foreingKey: "AuthorId",
+});
+
+Genre.hasMany(Book);
+Book.belongsTo(Genre, {
+  foreingKey: "GenreId",
+});
 
 module.exports = Book;
